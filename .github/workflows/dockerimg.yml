@@ -1,0 +1,25 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: your-username/portfolio:latest
+        env:
+          DOCKER_USERNAME: ${{ secrets.kavyajayasri }}
+          DOCKER_PASSWORD: ${{ secrets.Kavya@123}}
