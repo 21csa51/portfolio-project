@@ -7,7 +7,7 @@ import resumeImage from "../assets/resume.jpg"; // Import your resume image file
 import Particle from '../components/Particle';
 
 const Resume = () => {
-  const [width, setWidth] = useState(1200);
+  const [setWidth] = useState(1200);
 
   useEffect(() => {
     setWidth(window.innerWidth);
