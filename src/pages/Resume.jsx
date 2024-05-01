@@ -6,13 +6,6 @@ import { AiOutlineDownload } from "react-icons/ai";
 import resumeImage from "../assets/resume.jpg"; // Import your resume image file
 import Particle from '../components/Particle';
 
-const Resume = () => {
-  const [setWidth] = useState(1200);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
-
   return (
     <div>
       <Container fluid className="resume-section">
