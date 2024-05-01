@@ -19,5 +19,5 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync build/ s3://buckets3-21csa21 --delete
+          aws --debug s3 sync build/ s3://buckets3-21csa21 --delete
 
