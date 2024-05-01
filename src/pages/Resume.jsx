@@ -9,7 +9,7 @@ import pdf from "../assets/jayaresume.pdf"
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `https://github.com/Jayasri999/portfolio/blob/master/src/assets/resume.jpg`;
 
 const resumeLink = `https://github.com/Jayasri999/portfolio/blob/master/src/assets/jayaresume.pdf`
 
