@@ -3,11 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import './Contact.css';
 
-const Contact = () => {
-    const form = useRef();
-    const [done, setDone] = useState(false)
-    const [notDone, setNotDone] = useState(false)
-    const [formData, setFormData] = useState({});
+
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name] : e.target.value})
