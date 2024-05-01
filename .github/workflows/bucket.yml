@@ -1,22 +1,35 @@
-name: Push to AWS S3
-run-name: ${{ github.actor }} is running this GitHub Actions pipeline 
-on: [push]
+name: Deploy to S3 Bucket
+
+on:
+  push:
+    branches:
+      - master  # Change this to your main branch name
+
 jobs:
-  push-to-s3:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - name: Run npm install
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
         run: npm install
-      - name: Run npm build
+
+      - name: Build React app
         run: npm run build
-      - name: List the directories
-        run: ls
-      - name: Upload to S3
-        uses: jakejarvis/s3-sync-action@master
-        env:
-          SOURCE_DIR: build/
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+      - name: Upload to S3 bucket
+        run: aws s3 sync build/ s3://buckets3-21csa21 --delete
