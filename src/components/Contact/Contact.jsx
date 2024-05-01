@@ -14,7 +14,16 @@ import './Contact.css';
     const sendEmail = (e) => {
     e.preventDefault();
     
-    if(!formData.from_name || !formData.reply_to ||!formData.message){
+    if(!formData.fro return(
+        <Container style={{paddingTop: '50px'}} >
+            <Row >
+            <Col md={6} className="c-left" >
+            </Col>
+            <Col md={6} className="c-right">
+                
+            </Col>
+            </Row>
+        </Container>m_name || !formData.reply_to ||!formData.message){
       setNotDone(true)
     } else {
       
@@ -39,17 +48,6 @@ import './Contact.css';
     }
     };
     
-
-    return(
-        <Container style={{paddingTop: '50px'}} >
-            <Row >
-            <Col md={6} className="c-left" >
-            </Col>
-            <Col md={6} className="c-right">
-                
-            </Col>
-            </Row>
-        </Container>
     )
 }
 
